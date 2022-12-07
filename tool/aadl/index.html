@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AADL语言和OSATE工具集的使用 | 小陌白学习笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/vuepress-notes/logo.jpeg">
+    <meta name="description" content="记录日常学习">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/vuepress-notes/assets/css/0.styles.e49afd74.css" as="style"><link rel="preload" href="/vuepress-notes/assets/js/app.368a2ef6.js" as="script"><link rel="preload" href="/vuepress-notes/assets/js/3.4410d185.js" as="script"><link rel="preload" href="/vuepress-notes/assets/js/1.04063a12.js" as="script"><link rel="preload" href="/vuepress-notes/assets/js/16.f4d660bc.js" as="script"><link rel="prefetch" href="/vuepress-notes/assets/js/10.0b3668cc.js"><link rel="prefetch" href="/vuepress-notes/assets/js/11.b156350b.js"><link rel="prefetch" href="/vuepress-notes/assets/js/12.572961b7.js"><link rel="prefetch" href="/vuepress-notes/assets/js/13.38316beb.js"><link rel="prefetch" href="/vuepress-notes/assets/js/14.834e3d12.js"><link rel="prefetch" href="/vuepress-notes/assets/js/15.6f395a80.js"><link rel="prefetch" href="/vuepress-notes/assets/js/17.68193054.js"><link rel="prefetch" href="/vuepress-notes/assets/js/18.29457811.js"><link rel="prefetch" href="/vuepress-notes/assets/js/4.ceb255ee.js"><link rel="prefetch" href="/vuepress-notes/assets/js/5.ed69fae2.js"><link rel="prefetch" href="/vuepress-notes/assets/js/6.71ccba96.js"><link rel="prefetch" href="/vuepress-notes/assets/js/7.8e4cedf0.js"><link rel="prefetch" href="/vuepress-notes/assets/js/8.22a17f27.js"><link rel="prefetch" href="/vuepress-notes/assets/js/9.1d1324b2.js">
+    <link rel="stylesheet" href="/vuepress-notes/assets/css/0.styles.e49afd74.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>小陌白学习笔记</h3> <p class="description" data-v-59e6cb88>记录日常学习</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>小陌白</span>
+          
+        <!---->
+        2022
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepress-notes/" class="home-link router-link-active"><img src="/vuepress-notes/logo.jpeg" alt="小陌白学习笔记" class="logo"> <span class="site-name">小陌白学习笔记</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuepress-notes/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/vuepress-notes/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/vuepress-notes/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      文献阅读
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-notes/article/article001/" class="nav-link"><i class="undefined"></i>
+  形式化方法的研究进展与趋势
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-notes/article/article002/" class="nav-link"><i class="undefined"></i>
+  模型检验理论
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-notes/tool/spin/" class="nav-link"><i class="undefined"></i>
+  SPIN
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-notes/tool/nusmv/" class="nav-link"><i class="undefined"></i>
+  NuSMV
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-notes/tool/aadl/" aria-current="page" class="nav-link router-link-exact-active router-link-active"><i class="undefined"></i>
+  AADL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      学习笔记
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-notes/daily/english/" class="nav-link"><i class="undefined"></i>
+  英语学习
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-notes/daily/django/" class="nav-link"><i class="undefined"></i>
+  Django学习
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      我的其他平台
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/zhenli798" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/weixin_48842132" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/vuepress-notes/avator.jpg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    小陌白
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>8</h3> <h6 data-v-1fad0c41>文章</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>6</h3> <h6 data-v-1fad0c41>标签</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/vuepress-notes/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><a href="/vuepress-notes/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/vuepress-notes/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      文献阅读
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-notes/article/article001/" class="nav-link"><i class="undefined"></i>
+  形式化方法的研究进展与趋势
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-notes/article/article002/" class="nav-link"><i class="undefined"></i>
+  模型检验理论
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-notes/tool/spin/" class="nav-link"><i class="undefined"></i>
+  SPIN
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-notes/tool/nusmv/" class="nav-link"><i class="undefined"></i>
+  NuSMV
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-notes/tool/aadl/" aria-current="page" class="nav-link router-link-exact-active router-link-active"><i class="undefined"></i>
+  AADL
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      学习笔记
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-notes/daily/english/" class="nav-link"><i class="undefined"></i>
+  英语学习
+</a></li><li class="dropdown-item"><!----> <a href="/vuepress-notes/daily/django/" class="nav-link"><i class="undefined"></i>
+  Django学习
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      我的其他平台
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/zhenli798" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/weixin_48842132" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/vuepress-notes/" class="sidebar-heading clickable router-link-active"><span>🛖‍ 个人中心</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepress-notes/" aria-current="page" class="sidebar-link">个人主页</a></li><li><a href="/vuepress-notes/todo.html" class="sidebar-link">待办事项</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/vuepress-notes/article/article001/" class="sidebar-heading clickable"><span>📚 文献阅读</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepress-notes/article/article001/" class="sidebar-link">形式化方法的研究进展与趋势</a></li><li><a href="/vuepress-notes/article/article002/" class="sidebar-link">模型检验理论</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/vuepress-notes/tool/spin/" class="sidebar-heading clickable open"><span>🔧 工具</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepress-notes/tool/spin/" class="sidebar-link">SPIN</a></li><li><a href="/vuepress-notes/tool/nusmv/" class="sidebar-link">NuSMV</a></li><li><a href="/vuepress-notes/tool/aadl/" aria-current="page" class="active sidebar-link">AADL</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/vuepress-notes/daily/english/" class="sidebar-heading clickable"><span>📝 ️学习笔记</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepress-notes/daily/english/" class="sidebar-link">英语学习</a></li><li><a href="/vuepress-notes/daily/django/" class="sidebar-link">Django学习</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>AADL语言和OSATE工具集的使用</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>小陌白</span>
+          
+        <!---->
+        2022
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">AADL语言和OSATE工具集的使用</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>小陌白</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>2022/11/9</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>模型检验</span><span class="tag-item" data-v-8a445198>形式化方法</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="_1-aadl的诞生"><a href="#_1-aadl的诞生" class="header-anchor">#</a> 1. AADL的诞生</h2> <p>        UML等ADLs(结构描述语言)不是专门面向嵌入实时系统领域，尚不能解决该领域的时限响应、并发处理等特定需求。2004年，SAE(Society of Automotive Engineers)组织提出了嵌入式实时系统体系结构分析与设计标准AADL(Architecture Analysis and Design Language)。AADL借鉴了UML等多种ADLs的优点，目的是提供一种标准的、足够精确的方式，设计与分析嵌入式实时系统的软件、硬件体系结构及其性能关键属性。</p> <h2 id="_2-aadl简介"><a href="#_2-aadl简介" class="header-anchor">#</a> 2. AADL简介</h2> <p>        AADL（Architecture Analysis and Design Language）结构分析与设计语言，是一种面向嵌入式实时系统领域的建模语言，具有语法简单、语义精确、功能强大、可扩展等优点，能够对嵌入式软件的功能和非功能属性进行建模和描述，并且能够在开发早期对系统进行分析与验证。</p> <p>        作为一种体系结构描述语言，AADL通过描写构件和连接来建立系统的体系结构。一个AADL的描述由对一系列构件的描述组成，通过对这种描述的实例化来建立系统体系结构的模型。</p> <h3 id="_2-1-构件描述"><a href="#_2-1-构件描述" class="header-anchor">#</a> 2.1 构件描述</h3> <p>AADL的构件被定义成两部分：<font color="red">类型和实现</font>，相当于面向对象中的类与对象。一个AADL的构件拥有一个类型以及对应零个、一个或者很多个实现。</p> <ul><li>构件的类型：对外部接口的描述(进出端口、属性等)</li> <li>构件的实现：对内部结构的描述(子结构、其他属性等)</li></ul> <p>构件的类型和构件的实现都可以通过扩展定义一个新的类型和实现。</p> <h3 id="_2-2-构件的种类"><a href="#_2-2-构件的种类" class="header-anchor">#</a> 2.2 构件的种类</h3> <p>大体上分为三大类：软件构件、硬件构件和复合构件。每个种类中构件的语义和组合规则都被严格地定义。</p> <h4 id="_2-2-1-软件构件"><a href="#_2-2-1-软件构件" class="header-anchor">#</a> <strong>2.2.1 软件构件</strong></h4> <p>定义了系统体系结构中的应用元素</p> <ul><li>数据(data)：源文本中的数据类型和静态数据</li> <li>线程(thread)：并行执行的可调度单元</li> <li>线程组(thread group)：组织线程的组合单元</li> <li>进程(process)：受保护的地址空间</li> <li>子程序(subprogram)：可顺序调用的可执行代码</li></ul> <h4 id="_2-2-2-硬件构件"><a href="#_2-2-2-硬件构件" class="header-anchor">#</a> <strong>2.2.2 硬件构件</strong></h4> <p>也叫执行平台构件，对硬件元素进行建模</p> <ul><li>总线(bus)：在执行平台构件之间提供访问的构件</li> <li>内存(memory)：存储数据和代码的构件</li> <li>处理器(processor)：执行线程的构件</li> <li>设备(device)：与外部环境交互并代表外部环境的构件</li></ul> <h4 id="_2-2-3-复合构件"><a href="#_2-2-3-复合构件" class="header-anchor">#</a> <strong>2.2.3 复合构件</strong></h4> <p>系统(system)：软件、执行平台或系统构件的组合</p> <h3 id="_2-3-特征"><a href="#_2-3-特征" class="header-anchor">#</a> 2.3 特征</h3> <p>        构件的特征在构件类型中声明，规定构件类型的交互点，以这样方式，构件类型的所有实现给其他构件提供同样的接口。AADL存在很多种特征：交互的进出端口、接口子程序、子程序参数以及子构件的存取。它们之间通过定义在实现中的连接来完成。</p> <h3 id="_2-4-属性"><a href="#_2-4-属性" class="header-anchor">#</a> 2.4 属性</h3> <p>        属性是AADL组成中一个重要的方面，定义了一个构件的内在特性，它除了能够描述AADL实体的不同特性，还能够描述应用在体系结构中的约束条件，进而验证系统的可靠性。例如，属性被用来规定子程序的执行时间，线程的周期，数据或事件端口的等待队列协议等。属性的声明集中在属性集中，有三种声明方式：类型、常量和属性名。一些属性已经定义在AADL标准里，用户可以根据自己的需要定义新的属性。</p> <h3 id="_2-5-附件"><a href="#_2-5-附件" class="header-anchor">#</a> 2.5 附件</h3> <p>        当定义新的属性不能满足用户需要时，AADL又引入了附件的概念。附件是另一种对描述的元素添加信息的方式，和属性不同，它仅仅能够使用在构件的声明中，并且拥有自己独立的语法规则。附件的使用允许我们扩展AADL的语法规则以用于描述构件的动态行为。</p> <h2 id="_3-osate简介"><a href="#_3-osate简介" class="header-anchor">#</a> 3. OSATE简介</h2> <p>        osate（Open Source AADL Tool Environment）开源AADL工具环境，是一款基于Eclipse环境开发的建模平台，是目前AADL模型主要的开源开发工具，服务于AADL模型的嵌入式实时系统的建模与分析。</p> <ul><li>最新版本：<code>2.11.0</code></li> <li>下载地址：<a href="https://osate-build.sei.cmu.edu/download/osate/stable/" target="_blank" rel="noopener noreferrer">下载<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>运行环境：JDK、操作系统(Linux、MAC、Windows都可)</li> <li>官方更多样例：<a href="https://github.com/osate/examples" target="_blank" rel="noopener noreferrer">git地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h3 id="_3-1-打开软件自带样例"><a href="#_3-1-打开软件自带样例" class="header-anchor">#</a> 3.1 打开软件自带样例</h3> <p>导航栏<code>File-&gt;new-&gt;other-&gt;examples-&gt;AADL examples</code></p> <h3 id="_3-2-打开本地项目"><a href="#_3-2-打开本地项目" class="header-anchor">#</a> 3.2 打开本地项目</h3> <p>导航栏<code>File-&gt;Open Projects From File System</code></p> <h3 id="_3-3-实例化aadl文件"><a href="#_3-3-实例化aadl文件" class="header-anchor">#</a> 3.3 实例化AADL文件</h3> <p>点击一个aadl文件，然后点击导航栏<code>osate-&gt;instantiate</code></p> <h3 id="_3-4-检查流延迟"><a href="#_3-4-检查流延迟" class="header-anchor">#</a> 3.4 检查流延迟</h3> <p>对AADL的分析，有很多种，比如检查流延迟，但这些分析只能对实例化的结果进行分析</p> <p>选择一个实例化结果，然后点击导航栏<code>analyses-&gt;timing-&gt;check flow latency</code></p> <h3 id="_3-5-根据aadl文件自动生成可视化的diagram图"><a href="#_3-5-根据aadl文件自动生成可视化的diagram图" class="header-anchor">#</a> 3.5 根据AADL文件自动生成可视化的Diagram图</h3> <p>右键选择aadl文件，选择Create Diagram</p> <p>我们对Diagram的修改，会导致aadl文件进行相应的调整</p> <h3 id="_3-6-官方帮助文档"><a href="#_3-6-官方帮助文档" class="header-anchor">#</a> 3.6 官方帮助文档</h3> <p>导航栏<code>help-&gt;help contents</code></p> <img src="/vuepress-notes/tool/aadl/1.png" alt="osate help contents"> <h2 id="_4-aadl属性-基于osate"><a href="#_4-aadl属性-基于osate" class="header-anchor">#</a> 4. AADL属性(基于osate)</h2> <h3 id="_4-1-属性的查看方法"><a href="#_4-1-属性的查看方法" class="header-anchor">#</a> 4.1 属性的查看方法</h3> <ul><li><p>AADL Property Values视图用于以结构化的方式显示和编辑参数值，这通常比直接导航和操作AADL文本文件更容易。</p></li> <li><p>显示方式：<code>window-&gt;show view-&gt;aadl property values</code>即可打开该视图</p></li></ul> <p><strong>注</strong>：需要选中一个aadl文件，初始时状态列表为空，当双击任意属性时，会出现该属性参数信息</p> <img src="/vuepress-notes/tool/aadl/2.png" alt="property values view"> <h3 id="_4-2-属性值类型"><a href="#_4-2-属性值类型" class="header-anchor">#</a> 4.2 属性值类型</h3> <p>属性值（Property Values）和我们平时代码里的变量类似</p> <p>属性值有四种类型：</p> <ul><li>列表(Lists)：列表值可以展开以显示单个列表元素。</li> <li>文本(Records)：记录值可以展开以显示其字段。</li> <li>范围(Ranges)：范围值可以扩展以显示最小值、最大值和增量值。</li> <li>模式(Modes)：可以扩展模式属性值，以显示每个模式的不同值。</li></ul> <p><strong>例</strong>：Sampler_B有两个属性，Programming_Properties属性的Spurce_Text值为Lists类型，Timing_Properties属性的Period值为Records类型</p> <img src="/vuepress-notes/tool/aadl/3.png" alt="property values types example1"> <p><strong>例</strong>：Received_Prime属性Data_Model的Data_Representation值为Modes类型(待验证)</p> <img src="/vuepress-notes/tool/aadl/4.png" alt="property values types example2"> <h3 id="_4-3-属性状态"><a href="#_4-3-属性状态" class="header-anchor">#</a> 4.3 属性状态</h3> <p>属性状态有六种类型：</p> <ul><li>local：本地属性</li> <li>local contained：本地包含属性</li> <li>shared local contained：共享本地包含属性</li> <li>inherited：继承属性</li> <li>default：系统默认值</li> <li>undefined：不明确的属性</li></ul> <h3 id="_4-4-local属性"><a href="#_4-4-local属性" class="header-anchor">#</a> 4.4 Local属性</h3> <p>local属性是最基本的属性，它直接AADL模型元素的属性子句或大括号中定义</p> <p><strong>例</strong>：car的属性mine具有三个local属性Car_Length、Position、Car_Name</p> <div class="language-c extra-class"><pre class="language-c"><code>	device car
+		properties
+			mine<span class="token operator">::</span>Car_Length <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">3.25</span> meter<span class="token punctuation">;</span>
+			mine<span class="token operator">::</span>Position <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span> x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">3</span><span class="token punctuation">;</span> y <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">4</span><span class="token punctuation">;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+			mine<span class="token operator">::</span>Car_Name <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span> US <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;Rabbit&quot;</span><span class="token punctuation">;</span> Germany <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;Golf&quot;</span><span class="token punctuation">;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+	end car<span class="token punctuation">;</span>
+</code></pre></div><h3 id="_4-5-shared-local-contained属性"><a href="#_4-5-shared-local-contained属性" class="header-anchor">#</a> 4.5 （shared）local contained属性</h3> <p>包含属性是在属性子句中定义的，并使用applies to子句应用于嵌套模型元素。</p> <ul><li>local contained属性是应用于单个元素。</li> <li>shared local contained属性应用于同一个子句中的多个元素。</li></ul> <p><strong>例</strong>：local contained</p> <p>        在下图中，该视图显示了数据端口（功能）GPS_data的属性，Input_Rate是<code>local contained</code>属性，因为它的值是在包含进程类型Blended_Navigation的属性子句中定义的，注意该属性值末尾语法applies to GPS_Data。</p> <img src="/vuepress-notes/tool/aadl/5.png" alt="property values status example1"> <p><strong>例</strong>：shared local contained</p> <p>        修改上面例子中进程类型Blended_Navigation属性子句中的定义，然后属性<code>Input_Rate</code>在特性<code>INS_Data</code>(and GPS_Data)就是<code>shared local contained</code>的。</p> <img src="/vuepress-notes/tool/aadl/6.png" alt="property values status example2"> <h3 id="_4-6-inherited属性"><a href="#_4-6-inherited属性" class="header-anchor">#</a> 4.6 Inherited属性</h3> <p>顾名思义，继承，继承父构件的属性</p> <p><strong>例</strong>：在下图中，<code>Dispatch_Protocol</code>就是<code>inherited</code>，因为它是定义在<code>Prime_Reporter</code>并由<code>Prime_Rreporter_One</code>扩展。</p> <img src="/vuepress-notes/tool/aadl/7.png" alt="property values status example3"> <h3 id="_4-7-default属性"><a href="#_4-7-default属性" class="header-anchor">#</a> 4.7 default属性</h3> <p>        default属性表示所选元素的属性值没有在任何模型元素上定义，而是来自属性的默认值声明。具有default的属性通常不会显示在视图中。工具栏按钮Show default property values可用于切换的显示具有default的属性。</p> <img src="/vuepress-notes/tool/aadl/8.png" alt="property values status example4"> <h3 id="_4-8-undefined属性"><a href="#_4-8-undefined属性" class="header-anchor">#</a> 4.8 undefined属性</h3> <p>        undefined属性表示该属性对于选定的模型元素没有值。这些属性适用于选定的元素，因此它们可能具有选定属性持有者的值。具有undefined的属性通常不会显示在视图中。工具栏按钮Show undefined properties可用于切换的显示具有undefined的属性。</p> <img src="/vuepress-notes/tool/aadl/9.png" alt="property values status example5"> <h3 id="_4-9-open-property-association操作"><a href="#_4-9-open-property-association操作" class="header-anchor">#</a> 4.9 Open Property Association操作</h3> <p>官方解释：此操作将打开在AADL文本编辑器中提供显示属性值的属性关联</p> <p>个人理解：找到该属性最早被赋值的地方</p> <img src="/vuepress-notes/tool/aadl/10.png" alt="property values status example6"> <h2 id="_5-aadl构件详细介绍"><a href="#_5-aadl构件详细介绍" class="header-anchor">#</a> 5. AADL构件详细介绍</h2> <p><font color="red">AADL规则要求软件构件必须通过binding关系映射到执行平台构件</font>。通过binding定义了代码在哪执行，以及数据和可执行代码在哪存储。例如进程必须在memory内。<font color="red">软件和执行平台构件的集合在分层系统结构建模中可以表示虚拟机层</font>。</p> <h3 id="_5-1-bindings"><a href="#_5-1-bindings" class="header-anchor">#</a> 5.1 Bindings</h3> <p>绑定（bindings）：系统实现内部软件构件到硬件构件的映射(mapping)，具体是指：thread binds to processor; process, data and port bind to memory。</p> <h3 id="_5-2-构件命名规则"><a href="#_5-2-构件命名规则" class="header-anchor">#</a> 5.2 构件命名规则</h3> <p>构件类型和构件实现的名称必须是合法的AADL标识符，不能是AADL备用字（类似于其他语言的关键字）</p> <p>合法的AADL标识符，以字母和数字组合而成（不能以数字开头，字母和数字之间可以用<code>_</code>分隔）</p> <h3 id="_5-3-构件类型的声明"><a href="#_5-3-构件类型的声明" class="header-anchor">#</a> 5.3 构件类型的声明</h3> <p>以一个声明指定了thread构件的接口为例：</p> <div class="language-java extra-class"><pre class="language-java"><code>thread <span class="token generics"><span class="token punctuation">&lt;</span>name<span class="token punctuation">&gt;</span></span>
+	<span class="token keyword">extends</span>
+	features
+	flows
+	properties
+</code></pre></div><p>thread后面紧跟名称，这是构件的定义子句，定义这是一个叫做<code>&lt;name&gt;</code>的thread构件，这个构件具有thread的特性，它的特性是不可见的</p> <p>extends、features、flows、properties是构件的描述性子句，叫作构件的<strong>外部可见特性</strong>，其中：</p> <ul><li>flows指定了不同的抽象的信息传输通道</li> <li>extends允许一个构件类型声明拥有另一个构件类型的描述性子句，并且可以进行修改和添加</li></ul> <h3 id="_5-4-packages"><a href="#_5-4-packages" class="header-anchor">#</a> 5.4 packages</h3> <p>        AADL软件包将构件声明的集合用它们自己的名称空间组织成单独的单元。具有共同特征的元素可以被分组在一个包中，并使用包的名称进行引用。通过这种为每一组子系统元素提供不同的名称空间，软件包支持针对大型系统的不同子系统的AADL模型的独立开发。</p> <p><strong>例</strong>：一个进程类型的声明</p> <ul><li>为speed_control定义了数据输入和输出接口</li> <li>end语句结束进程说明和软件包说明</li> <li>包名叫test_package，即aadl文件叫test_package，即一个aadl文件就是一个软件包</li></ul> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">test_package</span>
+<span class="token keyword">public</span>
+	process speed_control
+		features
+			input_speed<span class="token operator">:</span> in data port<span class="token punctuation">;</span>
+			output_cmd<span class="token operator">:</span> out data port<span class="token punctuation">;</span>
+	end speed_control<span class="token punctuation">;</span>
+end test_package<span class="token punctuation">;</span>
+</code></pre></div><h3 id="_5-5-软件构件"><a href="#_5-5-软件构件" class="header-anchor">#</a> 5.5 软件构件</h3> <h4 id="_5-5-1-process"><a href="#_5-5-1-process" class="header-anchor">#</a> <strong>5.5.1 process</strong></h4> <ul><li>介绍</li></ul> <p>        Process<font color="red">表示受保护的地址空间</font>，当外部构件访问进程内部元素时受保护，地址空间包括：与进程直接相关的可执行二进制图像(可执行代码和数据)、与进程子构件直接相关的可执行二进制图像、通过外部构件引用的服务子程序(可执行代码)。<font color="red">Process的属性可以说明：memory保护的执行时间、相关的源文件信息、源文件加载时间、调度协议、绑定约束。</font></p> <ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/11.png" alt="process constraint"> <p>表明：</p> <ol><li><font color="red">实现才允许有子构件</font>，且进程子构件只能有data、thread、thread group三种形式。<font color="red">data作为子构件时，有实现则用实现，没实现则用类型</font>。</li> <li>进程类型的特征可以有四种形式</li> <li>进程实现不允许有子程序调用</li></ol> <ul><li>注意</li></ul> <p>进程中没有隐式线程，所以我们在进程中至少要创建一个线程，用于主动执行线程内的代码。</p> <h4 id="_5-5-2-thread"><a href="#_5-5-2-thread" class="header-anchor">#</a> <strong>5.5.2 thread</strong></h4> <ul><li>介绍</li></ul> <p>线程表示从源码有序执行的并发可调度的单位。<font color="red">多线程表示并发执行的路径</font>。线程可以分配多个属性，包括定时(例如最坏执行时间)、<font color="red">分派协议(例如周期性、不定期性)、memory大小、处理器绑定</font>。</p> <ul><li>线程执行</li></ul> <p>线程执行的图形状态机表示：</p> <img src="/vuepress-notes/tool/aadl/16.png" alt="thread execution"> <ol><li>圆角矩形表示一个或多个<font color="red">执行状态</font>。椭圆表示非执行状态。有向弧表示转移，其中小圆圈可以表示起始、终结、分叉和连接。</li> <li>线程的执行状态：<font color="red">Initialize、Compute、Recover的入口点是预先声明的</font>。</li> <li><code>Initialize</code>和<code>Compute</code>入口点用于正常执行。</li> <li>线程出错后，源文本可以处理；如果源文本不处理，<font color="red">线程请求恢复</font>以便下次分派；如果错误是不可恢复的，则线程会以<font color="red">out event data port错误</font>传送出去</li></ol> <ul><li>属性</li></ul> <p>预定义的属性可以对线程每个执行阶段进行详细描述。线程的执行阶段有以下六个：</p> <ol><li>Initialize：进行应用程序的特定初始化</li> <li>Activate：在模式切换之间恢复应用程序状态</li> <li>Compute：表示在每次线程分派时被执行的代码</li> <li>Recover：线程执行故障恢复动作</li> <li>Deactivate：在模式切换之间保存应用程序状态</li> <li>Finalize：因为进程中止或退出时线程被终止</li></ol> <p>每个执行阶段都有<code>execution time</code>和<code>deadline</code></p> <p>        此外，线程属性还有分派协议<code>Dispatch_Protocol</code>，其可选项有定期的periodic（每隔一个周期线程重新分派）、不定期的aperiodic（事件触发线程的分派）、不定时的sporadic（在最小分派间隔内事件驱动线程的分派）、背景的background（分派后初始化执行直到完成）</p> <p>例：列出了compute、initialize执行阶段</p> <div class="language-c extra-class"><pre class="language-c"><code>	thread control
+		properties
+		<span class="token operator">--</span> nominal execution properties
+		Compute_Entrypoint <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;control_ep&quot;</span><span class="token punctuation">;</span>
+		Compute_Execution_Time <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">5</span>ms<span class="token punctuation">.</span><span class="token number">.10</span>ms<span class="token punctuation">;</span>
+		Compute_Deadline <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">20</span>ms<span class="token punctuation">;</span>
+		Dispatch_Protocol <span class="token operator">=</span><span class="token operator">&gt;</span> Periodic<span class="token punctuation">;</span>
+		<span class="token operator">--</span> initialization execution properties
+		Initialize_Entrypoint <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;init_control&quot;</span><span class="token punctuation">;</span>
+		Initialize_Execution_Time <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">2</span>ms<span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token number">5</span>ms<span class="token punctuation">;</span>
+		Initialize_Deadline <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">10</span>ms<span class="token punctuation">;</span>
+	end control<span class="token punctuation">;</span>
+</code></pre></div><ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/12.png" alt="thread constraint"> <p>表明：线程实现的子构件只能是data，可以有子程序调用。</p> <ul><li>注意</li></ul> <p>线程必须被包含在进程或线程组中</p> <h4 id="_5-5-3-thread-group"><a href="#_5-5-3-thread-group" class="header-anchor">#</a> <strong>5.5.3 thread group</strong></h4> <ul><li>介绍</li></ul> <p>线程组是为了逻辑组织线程、数据而出现的构件抽象。为在设计中关注点的分隔提供了基础，为许多线程及其相关数据的引用只需要定义一个引用接口。</p> <ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/13.png" alt="thread group constraint"> <p>表明：线程组实现的子构件可以是数据、线程、线程组，不允许有子程序调用</p> <ul><li>注意</li></ul> <p>线程组只能作为进程或者其他线程组的子构件</p> <h4 id="_5-5-4-data"><a href="#_5-5-4-data" class="header-anchor">#</a> <strong>5.5.4 Data</strong></h4> <ul><li>介绍</li></ul> <p>data表示静态数据和系统中数据类型。data构件的声明常用来表示：</p> <ol><li>应用程序数据类型（eg：用作端口和参数上的数据类型）</li> <li>通过data构件实现的声明中的data子构件实现数据类型的子结构</li> <li>数据实例</li></ol> <ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/14.png" alt="data constraint"> <p>表明：data实现的子构件只能是data(当然没实现的时候可以用类型，有实现的时候必须用实现)，不允许子程序调用</p> <h4 id="_5-5-5-大例子1"><a href="#_5-5-5-大例子1" class="header-anchor">#</a> <strong>5.5.5 大例子1</strong></h4> <ul><li>前置知识——什么是构件实现的声明</li></ul> <p>以一个thread构件实现的声明格式为例：</p> <img src="/vuepress-notes/tool/aadl/15.png" alt="component implementation"> <p>其中：implementationidentifier表示该构件实现的标识符，它与typeidentifier即构件类型标识符共同构成该构件实现的名字</p> <ul><li>例子</li></ul> <div class="language-python extra-class"><pre class="language-python"><code>	<span class="token operator">-</span><span class="token operator">-</span> 声明一个进程构件类型，其标识符为control_processing
+	process control_processing 
+		features
+			<span class="token builtin">input</span><span class="token punctuation">:</span> <span class="token keyword">in</span> data port sensor_data<span class="token punctuation">;</span>
+			output<span class="token punctuation">:</span> out data port command_data<span class="token punctuation">;</span>
+	end control_processing<span class="token punctuation">;</span>
+	
+	<span class="token operator">-</span><span class="token operator">-</span> 声明一个名为control_processing<span class="token punctuation">.</span>speed_control（该实现标识符是speed_control）的进程构件实现
+	process implementation control_processing<span class="token punctuation">.</span>speed_control
+		subcomponents
+			control_input<span class="token punctuation">:</span> thread control_in<span class="token punctuation">.</span>input_processing_01<span class="token punctuation">;</span>
+			control_output<span class="token punctuation">:</span> thread control_out<span class="token punctuation">.</span>output_processing_01<span class="token punctuation">;</span>
+	end control_processing<span class="token punctuation">.</span>speed_control<span class="token punctuation">;</span>
+	
+	<span class="token operator">-</span><span class="token operator">-</span> 声明一个名为control_in线程构件类型
+	thread control_in
+	end control_in<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span> 声明一个名为control_in<span class="token punctuation">.</span>input_processing_01线程构件的实现
+	thread implementation control_in<span class="token punctuation">.</span>input_processing_01
+	end control_in<span class="token punctuation">.</span>input_processing_01<span class="token punctuation">;</span>
+	
+	<span class="token operator">-</span><span class="token operator">-</span> 声明一个名为control_out线程构件类型
+	thread control_out
+	end control_out<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span> 声明一个名为control_out<span class="token punctuation">.</span>output_processing_01线程构件的实现
+	thread implementation control_out<span class="token punctuation">.</span>output_processing_01
+	end control_out<span class="token punctuation">.</span>output_processing_01<span class="token punctuation">;</span>
+	
+	<span class="token operator">-</span><span class="token operator">-</span> 声明一个名为sensor_data数据构件类型
+	data sensor_data
+	end sensor_data<span class="token punctuation">;</span>
+	
+	<span class="token operator">-</span><span class="token operator">-</span> 声明一个名为command_data数据构件类型
+	data command_data
+	end command_data<span class="token punctuation">;</span>
+</code></pre></div><p>从上面例子中我们可以看出：</p> <ol><li>各构件的类型、实现声明的格式。例如后加end</li> <li>对于某些子条款为空时，可以不写出来</li> <li>子构件的写法 (<font color="red">前面可以起别名，实现的子构件一般为实现</font>)</li></ol> <h4 id="_5-5-6-subprogram"><a href="#_5-5-6-subprogram" class="header-anchor">#</a> <strong>5.5.6 Subprogram</strong></h4> <ul><li>介绍</li></ul> <p>subprogram抽象表示可顺序执行的源文本，是可调用构件，为调用它的构件提供服务功能或数据操作。可以表示：</p> <ol><li>data操作的一种方法调用</li> <li>基本程序调用和顺序调用</li> <li>远程服务/程序调用</li></ol> <p>这些调用包括data转移(进或出)的subprogram。参数以feature的形式声明，为一个subprogram提供data转移的接口。</p> <ul><li>例：data操作的方法调用</li></ul> <p>特征scale_acc_data表示对data构件accelerometer_data进行操作的源文本的入口点</p> <div class="language-java extra-class"><pre class="language-java"><code>	subprogram scale_data
+	end scale_data<span class="token punctuation">;</span>
+	
+	subprogram implementation scale_data<span class="token punctuation">.</span>scale_sensor_data
+	end scale_data<span class="token punctuation">.</span>scale_sensor_data<span class="token punctuation">;</span>
+	
+	data accelerometer_data
+	features
+	scale_acc_data<span class="token operator">:</span> <span class="token keyword">provides</span> <span class="token namespace">subprogram</span> access scale_data<span class="token punctuation">.</span>scale_sensor_data<span class="token punctuation">;</span>
+	end accelerometer_data<span class="token punctuation">;</span>
+	
+	process sensor_systems
+	end sensor_systems<span class="token punctuation">;</span>
+	
+	process implementation sensor_systems<span class="token punctuation">.</span>sensor_processing
+	subcomponents
+	acc_data<span class="token operator">:</span> data accelerometer_data<span class="token punctuation">;</span>
+	scale_it<span class="token operator">:</span> thread process_data<span class="token punctuation">.</span>scale<span class="token punctuation">;</span>
+	end sensor_systems<span class="token punctuation">.</span>sensor_processing<span class="token punctuation">;</span> 
+	
+	thread process_data
+	end process_data<span class="token punctuation">;</span>
+	
+	thread implementation process_data<span class="token punctuation">.</span>scale
+	end process_data<span class="token punctuation">.</span>scale<span class="token punctuation">;</span>
+</code></pre></div><ul><li>属性</li></ul> <p>subprogram属性可以对以下方面声明：为子程序的源文本声明、memory需求、memory绑定、与calls有关的特征</p> <ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/17.png" alt="subprogram constraints"> <h3 id="_5-6-硬件构件"><a href="#_5-6-硬件构件" class="header-anchor">#</a> 5.6 硬件构件</h3> <h4 id="_5-6-1-processor"><a href="#_5-6-1-processor" class="header-anchor">#</a> <strong>5.6.1 processor</strong></h4> <ul><li>介绍</li></ul> <p>processor是负责调度和执行线程的硬件和相关软件的抽象</p> <ul><li>范例</li></ul> <div class="language-c extra-class"><pre class="language-c"><code>	processor Intel_Linux
+		properties
+			Hardware_Source_Language <span class="token operator">=</span><span class="token operator">&gt;</span> VHDL<span class="token punctuation">;</span>
+			Hardware_Description_Source_Text <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token string">&quot;intel_vhdl_1&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;intel_vhdl_2&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	end Intel_Linux<span class="token punctuation">;</span>
+	
+	processor implementation Intel_Linux<span class="token punctuation">.</span>Intel_Linux_01
+		subcomponents
+			HSRAM<span class="token operator">:</span> memory RAM<span class="token punctuation">.</span>Intel_RAM<span class="token punctuation">;</span>
+	end Intel_Linux<span class="token punctuation">.</span>Intel_Linux_01<span class="token punctuation">;</span>
+	
+	memory RAM
+	end RAM<span class="token punctuation">;</span>
+	
+	memory implementation RAM<span class="token punctuation">.</span>Intel_RAM
+	end RAM<span class="token punctuation">.</span>Intel_RAM<span class="token punctuation">;</span>
+</code></pre></div><ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/18.png" alt="processor constraints"> <p>表明：不能有子程序调用，其连接只能是总线访问。</p> <h4 id="_5-6-2-memory"><a href="#_5-6-2-memory" class="header-anchor">#</a> <strong>5.6.2 memory</strong></h4> <ul><li>介绍</li></ul> <p>        memory表示<font color="red">存储数据和可执行代码的</font>构件。可以是随机可访问的物理存储(如RAM\ROM)，也可以是永久存储(如disk、reflective memory)。memory可以在processor内，也可以作为单独的执行平台构件，通过bus与processor连接。</p> <ul><li>范例</li></ul> <div class="language-c extra-class"><pre class="language-c"><code>	memory RAM
+		features 
+			bus01<span class="token operator">:</span> requires bus access membus<span class="token punctuation">.</span>hsbus<span class="token punctuation">;</span>
+	end RAM<span class="token punctuation">;</span>
+	<span class="token operator">--</span>
+	memory implementation RAM<span class="token punctuation">.</span>compRAM
+		subcomponents
+			HSRAM01<span class="token operator">:</span> memory XRAM<span class="token punctuation">.</span>HSRAM<span class="token punctuation">;</span>
+			SRAM01<span class="token operator">:</span> memory XRAM<span class="token punctuation">.</span>SRAM<span class="token punctuation">;</span>
+	end RAM<span class="token punctuation">.</span>compRAM<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 
+	memory XRAM
+	end XRAM<span class="token punctuation">;</span>
+	<span class="token operator">--</span>
+	memory implementation XRAM<span class="token punctuation">.</span>HSRAM
+	end XRAM<span class="token punctuation">.</span>HSRAM<span class="token punctuation">;</span>
+	<span class="token operator">--</span>
+	memory implementation XRAM<span class="token punctuation">.</span>SRAM
+	end XRAM<span class="token punctuation">.</span>SRAM<span class="token punctuation">;</span>
+	<span class="token operator">--</span>
+	bus membus
+	end membus<span class="token punctuation">;</span>
+	<span class="token operator">--</span>
+	bus implementation membus<span class="token punctuation">.</span>hsbus
+	end membus<span class="token punctuation">.</span>hsbus<span class="token punctuation">;</span>
+</code></pre></div><ul><li>属性</li></ul> <p>        memory的属性包括：memory访问协议、word size、存储单元的其他重要描述特征、memory访问默认值(Memory_Protocol)是read-write，但是可以改成read only or write only。</p> <ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/19.png" alt="memory constraints"> <ul><li>注意</li></ul> <p>memory构件只能被包含在memory，processor或者system构件中。此外，一个单独的memory构件必须被包含在processor中或者通过bus连接到一个processor。</p> <h4 id="_5-6-3-bus"><a href="#_5-6-3-bus" class="header-anchor">#</a> <strong>5.6.3 bus</strong></h4> <ul><li>介绍</li></ul> <p>        bus代表支持物理构件之间交互所要求的物理硬件和关联通信协议。总线的示例是PCI总线、VME总线、CAN总线、以太网和无线网络。总线通常用于连接计算机硬件构件。还能够使用总线构件表示物理资源，如分配给物理构件的电源和计算机硬件构件。</p> <ul><li>范例</li></ul> <p>一个处理器类型说明和两个总线类型说明。处理器类型说明Intel_Linux包括一个用于总线类型memory_bus的要求的总线访问说明。而总线类型说明memory_bus包括一个用于总线类型network_bus的要求的总线访问。</p> <div class="language-python extra-class"><pre class="language-python"><code>	bus memory_bus
+		features
+			NBA<span class="token punctuation">:</span> requires bus access network_bus<span class="token punctuation">;</span>
+	end memory_bus<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	bus network_bus
+	end network_bus<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	processor Intel_Linux
+		features
+			MBA<span class="token punctuation">:</span> requires bus access memory_bus<span class="token punctuation">;</span>
+	end Intel_Linux<span class="token punctuation">;</span>
+</code></pre></div><p>例如，处理器和存储器要求访问总线，以使处理器能够使用存储器，或者能够经由一个USB总线与照相机通信。对总线访问的需求定义于处理器和存储器的类型说明之中，而与总线的连接则是在包括处理器、存储器和总线的系统实现内明确说明的。总线能够与其他总线直接连接，以表示互联网的通信。它是通过总线类型内要求的总线访问特征以及这些总线实例之间的明确的连接说明规定的。</p> <ul><li>属性</li></ul> <ol><li>连接 (eg：规定所支持的连接类别的Allowed_Connection_Type)</li> <li>消息尺寸 (eg：Allowed_Message_Size)</li> <li>传输时间 (eg：Transmission_Time)</li> <li>硬件源语言描述 (eg：Hardware_Source_Language)</li></ol> <ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/20.png" alt="bus constraints"> <ul><li>注意</li></ul> <p>bus构件只能是system构件的子构件</p> <h4 id="_5-6-4-device"><a href="#_5-6-4-device" class="header-anchor">#</a> <strong>5.6.4 device</strong></h4> <ul><li>介绍</li></ul> <p>        device表示与外部环境交互的<font color="red">实体</font>。抽象代表诸如传感器和作动器或发动机一类嵌入式软件系统的接口的实体。一个device有复杂的连接方式，如与processor通过bus连接，与软件构件通过logical connections连接。</p> <p>一个device可以被看作：</p> <ol><li>通过端口与应用软件连接的物理构件</li> <li>应用系统中的一部分，用于执行平台构件和应用系统的交互</li> <li>被应用系统访问或者控制的环境的一部分</li></ol> <ul><li>范例</li></ul> <p>该范例描述了通过总线与处理器speed_processor交互的设备speed_sensor。处理器执行用于speed_sensor的设备驱动。</p> <div class="language-python extra-class"><pre class="language-python"><code>	device speed_sensor
+		features
+			BA2<span class="token punctuation">:</span> requires bus access marine_bus<span class="token punctuation">;</span>
+			raw_rate<span class="token punctuation">:</span> out data port<span class="token punctuation">;</span>
+	end speed_sensor<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	bus marine_bus
+	end marine_bus<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	bus implementation marine_bus<span class="token punctuation">.</span>impl
+	end marine_bus<span class="token punctuation">.</span>impl<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	processor speed_processor
+		features
+			BA1<span class="token punctuation">:</span> requires bus access marine_bus<span class="token punctuation">;</span>
+	end speed_processor<span class="token punctuation">;</span>
+</code></pre></div><ul><li>属性</li></ul> <p>device的属性包括了软件和硬件两部分属性。软件属性：源代码文件、源代码语言、代码大小、执行平台绑定属性；硬件属性：硬件描述语言。</p> <ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/21.png" alt="device constraints"> <h3 id="_5-7-复合构件"><a href="#_5-7-复合构件" class="header-anchor">#</a> 5.7 复合构件</h3> <p><strong>系统构件</strong></p> <ul><li>介绍</li></ul> <p>system表示软件、硬件和系统构件的复合体。system可以表示复杂系统的系统，也可以表示集成软硬件的专一应用系统（如飞机导航系统、数据库服务器）。</p> <ul><li>范例</li></ul> <div class="language-python extra-class"><pre class="language-python"><code>	system integrated_control
+	end integrated_control<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	system implementation integrated_control<span class="token punctuation">.</span>PBA
+		subcomponents
+			control_process<span class="token punctuation">:</span> process controller<span class="token punctuation">.</span>speed_control<span class="token punctuation">;</span>
+			set_point_data<span class="token punctuation">:</span> data set_points<span class="token punctuation">;</span>
+			navigation_system<span class="token punctuation">:</span> system core_system<span class="token punctuation">.</span>navigation<span class="token punctuation">;</span>
+			real_time_processor<span class="token punctuation">:</span> processor rt_fast<span class="token punctuation">.</span>rt_processor<span class="token punctuation">;</span>
+			hs_memory<span class="token punctuation">:</span> memory rt_memory<span class="token punctuation">.</span>high_speed<span class="token punctuation">;</span>
+			high_speed_bus<span class="token punctuation">:</span> bus network_bus<span class="token punctuation">.</span>HSbus<span class="token punctuation">;</span>
+	end integrated_control<span class="token punctuation">.</span>PBA<span class="token punctuation">;</span>
+</code></pre></div><ul><li>约束</li></ul> <img src="/vuepress-notes/tool/aadl/22.png" alt="system constraints"> <h3 id="_5-8-抽象构件"><a href="#_5-8-抽象构件" class="header-anchor">#</a> 5.8 抽象构件</h3> <ul><li>介绍</li></ul> <p>抽象构件类别是在不选择它们运行时类别的情况下，允许说明构件类型和实现的通用类别。利用这种类别，能够开发：</p> <ol><li>系统体系结构的概念性组件基视图</li> <li>通用的组件基参考体系结构</li> <li>能够示例和适用于一个体系结构（例如，作为一个方面适用的冗余模式）的体系结构模板或模式。</li></ol> <p>        如果需要的话，能够将这些通用说明在线程、线程组、进程、系统、数据、子程序、处理器、虚拟处理器、总线、虚拟总线和设备中进行细化。通过为体系结构权衡研究以及分析（例如：全系统延迟分析可以在尚未定义所包括的组件的运行时特性的情况下进行）的表示方法提供替代方案，在开发的早期阶段，这种技术方法是特别有用的。</p> <ul><li>范例</li></ul> <div class="language-python extra-class"><pre class="language-python"><code>	abstract integrated_control
+	end integrated_control<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	abstract implementation integrated_control<span class="token punctuation">.</span>PBA
+		subcomponents
+			control_process<span class="token punctuation">:</span> process controller<span class="token punctuation">.</span>speed_control<span class="token punctuation">;</span>
+			set_point_data<span class="token punctuation">:</span> data set_ponits<span class="token punctuation">;</span>
+			navigation_system<span class="token punctuation">:</span> system core_system<span class="token punctuation">.</span>navigation<span class="token punctuation">;</span>
+			real_time_processor<span class="token punctuation">:</span> processor rt_fast<span class="token punctuation">.</span>rt_processor<span class="token punctuation">;</span>
+			hs_memory<span class="token punctuation">:</span> memory rt_memory<span class="token punctuation">.</span>high_speed<span class="token punctuation">;</span>
+			high_speed_bus<span class="token punctuation">:</span> bus network_bus<span class="token punctuation">.</span>HSbus<span class="token punctuation">;</span>
+			error_response<span class="token punctuation">:</span> abstract error_manager<span class="token punctuation">.</span>real_time<span class="token punctuation">;</span>
+	end integrated_control<span class="token punctuation">.</span>PBA<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	system integrated_control_sys
+		extends integrated_control
+	end integrated_control_sys<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span> 将抽象的组件实现扩展为系统类别的说明
+	system implementation integrated_control_sys<span class="token punctuation">.</span>PBA
+		extends integrated_control<span class="token punctuation">.</span>PBA
+	end integrated_control_sys<span class="token punctuation">.</span>PBA<span class="token punctuation">;</span>
+</code></pre></div><ul><li>属性</li></ul> <p>可用于其他类别的所有属性均适用于抽象构件。但是，当将抽象构件细化为一个非抽象构件时，只有对非抽象类别有效的那些属性是适用的。</p> <h2 id="_6-构件交互"><a href="#_6-构件交互" class="header-anchor">#</a> 6. 构件交互</h2> <p>通过连接、调用和绑定来建立各构件之间的关系，定义构件的交互。</p> <h3 id="_6-1-端口和连接"><a href="#_6-1-端口和连接" class="header-anchor">#</a> 6.1 端口和连接</h3> <p>        端口是用于数据、事件或数据和事件两者的输入或输出定向传输的接口。</p> <ol><li>端口说明</li></ol> <p><code>name: &lt;direction&gt; &lt;port type&gt; [data identifier] [{properties}];</code></p> <p>        通过端口的信息流的方向用端口方向备用字：in、out或in out定义。方向in表示构件的输入，方向out表示构件的输出，方向in out表示一个端口既可以用于输入也可以用于输出。</p> <p>示例：数据端口、事件端口和事件数据端口</p> <div class="language-python extra-class"><pre class="language-python"><code>	process control
+		features
+			speed<span class="token punctuation">:</span> <span class="token keyword">in</span> data port raw_speed <span class="token punctuation">{</span>Source_Name <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;RawSpeed&quot;</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+			disable<span class="token punctuation">:</span> <span class="token keyword">in</span> event port <span class="token punctuation">{</span>Required_Connection <span class="token operator">=</span><span class="token operator">&gt;</span> false<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+			set_speed<span class="token punctuation">:</span> <span class="token keyword">in</span> event data port raw_speed<span class="token punctuation">.</span>setpt<span class="token punctuation">;</span>
+	end control<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	data raw_speed
+	end raw_speed<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span>
+	data implementation raw_speed<span class="token punctuation">.</span>setpt
+	end raw_speed<span class="token punctuation">.</span>setpt<span class="token punctuation">;</span>
+</code></pre></div><ol start="2"><li>端口连接说明</li></ol> <p><code>name: port &lt;source port&gt; &lt;connection symbol&gt; &lt;destination port&gt; [{properties}] [in modes and transitions];</code></p> <p><code>&lt;connection symbol&gt;</code>可以是→也可以是←→，代表连接可以是单向的也可以是双向的。属性则包括了连接有关的协议属性。输入模式和转换，则是实体将连接与特定模式或模式转换联系起来。换句话说就是指定了模式的话就表示，该连接在指定的模式中是有效的，在另一种模式中是无效的。同理，连接仅在模式转换期间是有效的。</p> <p>示例：</p> <div class="language-python extra-class"><pre class="language-python"><code>	process control
+		features
+			command_data<span class="token punctuation">:</span> out data port<span class="token punctuation">;</span>
+			sensor_data<span class="token punctuation">:</span> <span class="token keyword">in</span> data port<span class="token punctuation">;</span>
+			set_speed<span class="token punctuation">:</span> <span class="token keyword">in</span> data port<span class="token punctuation">;</span>
+			disengage<span class="token punctuation">:</span> <span class="token keyword">in</span> event port<span class="token punctuation">;</span>
+	end control<span class="token punctuation">;</span>
+	<span class="token operator">-</span><span class="token operator">-</span> PBA控制功能
+	process implementation control<span class="token punctuation">.</span>speed
+		subcomponents
+			scale_speed_data<span class="token punctuation">:</span> thread read_data<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+			speed_control_laws<span class="token punctuation">:</span> thread control_laws<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+		connections
+			DC1<span class="token punctuation">:</span> port sensor_data <span class="token operator">-</span><span class="token operator">&gt;</span> scale_speed_data<span class="token punctuation">.</span>sensor_data<span class="token punctuation">;</span>
+			DC2<span class="token punctuation">:</span> port scale_speed_data<span class="token punctuation">.</span>proc_data <span class="token operator">-</span><span class="token operator">&gt;</span> speed_control_laws<span class="token punctuation">.</span>proc_data<span class="token punctuation">;</span>
+			DC3<span class="token punctuation">:</span> port speed_control_laws<span class="token punctuation">.</span>cmd <span class="token operator">-</span><span class="token operator">&gt;</span> command_data<span class="token punctuation">;</span>
+			DC4<span class="token punctuation">:</span> port set_speed <span class="token operator">-</span><span class="token operator">&gt;</span> speed_control_laws<span class="token punctuation">.</span>set_speed<span class="token punctuation">;</span>
+			EC1<span class="token punctuation">:</span> port disengage <span class="token operator">-</span><span class="token operator">&gt;</span> speed_control_laws<span class="token punctuation">.</span>disengage<span class="token punctuation">;</span>
+	end control<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+</code></pre></div><h3 id="_6-2-总线访问和连接"><a href="#_6-2-总线访问和连接" class="header-anchor">#</a> 6.2 总线访问和连接</h3> <p>        嵌入式系统的计算机硬件构件和物理构件，在物理上是经由总线互相连接的。可通过说明一个组件（如处理器或传感器设备）访问某种类型的总线的需求，并通过总线访问连接说明做到这一点。</p> <p>示例：为油门操纵杆提供总线访问和连接</p> <div class="language- extra-class"><pre class="language-text"><code>	device actuator
+		features
+			cmd: in data port;
+			BA1: requires bus access Marine.Standard;
+	end actuator;
+	-- 响应PBA命令的油门操纵杆
+	device implementation actuator.speed
+	end actuator.speed;
+	-- 总线
+	bus Marine
+	end Marine;
+	--
+	bus implementation Marine.Standard	
+	end Marine.Standard;
+	-- 封闭系统类型
+	system Complete
+	end Complete;
+	-- 封闭系统实现(说明分组件实例和它们的连接)
+	system implementation Complete.PBA_speed_control
+		subcomponents
+			throttle: device actuator.speed;
+			Standard_Marine_Bus: bus Marine.Standard;
+		connections
+			BAC1: bus access Standard_Marine_Bus &lt;-&gt; throttle.BA1;
+	end Complete.PBA_speed_control;
+</code></pre></div><h2 id="_7-系统流"><a href="#_7-系统流" class="header-anchor">#</a> 7. 系统流</h2> <p>        流允许对整个体系结构的逻辑路径进行表述和分析。在流的支持下，能够说明构件的流规范。流规范定义了从构件输入到构件输出的逻辑流。</p> <h3 id="_7-1-流规范的说明"><a href="#_7-1-流规范的说明" class="header-anchor">#</a> 7.1 流规范的说明</h3> <p>流规范说明包括在构件类型说明的<font color="red">flows</font>部分之中，并在流中确定组件的角色。</p> <p>三个流规范的模板：</p> <img src="/vuepress-notes/tool/aadl/23.png" alt="flows standard"> <ol><li>流源：定义构件中一个流的起源，借助流出特征从构件中流出</li> <li>流汇：定义构件中一个流的终止，借助流入特征流入构件</li> <li>流路径：定义借助流入特征流入构件和借助流出特征从构件中流出的一个流</li></ol> <h3 id="_7-2-端对端流说明"><a href="#_7-2-端对端流说明" class="header-anchor">#</a> 7.2 端对端流说明</h3> <p>端对端流详述了从一个构件开始到另一个构件结束的一个路径。</p> <p>端对端流说明：</p> <img src="/vuepress-notes/tool/aadl/24.png" alt="port to port declaration"> <h2 id="_8-模型开发"><a href="#_8-模型开发" class="header-anchor">#</a> 8. 模型开发</h2> <p>建立一个一维速度控制系统模型，进行调度分析。速度控制功能是汽艇自动驾驶仪(PBA)系统的一部分。</p> <h3 id="_8-1-模型构件的定义"><a href="#_8-1-模型构件的定义" class="header-anchor">#</a> 8.1 模型构件的定义</h3> <p>        审查PBA速度控制装置，定义一个简化的速度控制模型。在该模型中，需要用到一个用于输入PBA相关信息的驾驶员接口单元、一个用于为PBA传送速度数据的速度传感器，以及一个用于响应PBA命令的油门操纵杆。由于我们最开始开发的是一个概念模型，因此我们将组件类别限制为系统、进程和设备。</p> <div class="language-c extra-class"><pre class="language-c"><code>	device sensor
+		features
+			sensor_data<span class="token operator">:</span> out data port<span class="token punctuation">;</span>
+	end sensor<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 用于为PBA传送速度数据的速度传感器
+	device implementation sensor<span class="token punctuation">.</span>speed
+	end sensor<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 
+	device interface
+		features
+			set_speed<span class="token operator">:</span> out data port<span class="token punctuation">;</span>
+			disengage<span class="token operator">:</span> out event port<span class="token punctuation">;</span>
+	end interface<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 输入PBA相关信息的驾驶员接口单元
+	device implementation interface<span class="token punctuation">.</span>pilot
+	end interface<span class="token punctuation">.</span>pilot<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 
+	process control
+		features
+			command_data<span class="token operator">:</span> out data port<span class="token punctuation">;</span>
+			sensor_data<span class="token operator">:</span> in data port<span class="token punctuation">;</span>
+			set_speed<span class="token operator">:</span> in data port<span class="token punctuation">;</span>
+			disengage<span class="token operator">:</span> in event port<span class="token punctuation">;</span>
+	end control<span class="token punctuation">;</span>
+	<span class="token operator">--</span> PBA控制功能
+	process implementation control<span class="token punctuation">.</span>speed
+	end control<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 
+	device actuator
+		features
+			cmd<span class="token operator">:</span> in data port<span class="token punctuation">;</span>
+	end actuator<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 响应PBA命令的油门操纵杆
+	device implementation actuator<span class="token punctuation">.</span>speed
+	end actuator<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+</code></pre></div><p>将速度传感器、驾驶员接口和油门操纵杆建模为设备，并将PBA控制功能表示为一个进程。不进行深入的分解。</p> <h3 id="_8-2-顶层模型的开发"><a href="#_8-2-顶层模型的开发" class="header-anchor">#</a> 8.2 顶层模型的开发</h3> <p>将各个构件的模型的实现集成到一个系统中</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token operator">--</span> 封闭系统类型
+	system Complete
+	end Complete<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 封闭系统实现<span class="token punctuation">(</span>说明分组件实例和它们的连接<span class="token punctuation">)</span>
+	system implementation Complete<span class="token punctuation">.</span>PBA_speed_control
+		subcomponents
+			speed_sensor<span class="token operator">:</span> device sensor<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+			throttle<span class="token operator">:</span> device actuator<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+			speed_control<span class="token operator">:</span> process control<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+			interface_unit<span class="token operator">:</span> device interface<span class="token punctuation">.</span>pilot<span class="token punctuation">;</span>
+		connections
+			DC1<span class="token operator">:</span> port speed_sensor<span class="token punctuation">.</span>sensor_data <span class="token operator">-&gt;</span> speed_control<span class="token punctuation">.</span>sensor_data<span class="token punctuation">;</span>
+			DC2<span class="token operator">:</span> port speed_control<span class="token punctuation">.</span>command_data <span class="token operator">-&gt;</span> throttle<span class="token punctuation">.</span>cmd<span class="token punctuation">;</span>
+			DC3<span class="token operator">:</span> port interface_unit<span class="token punctuation">.</span>set_speed <span class="token operator">-&gt;</span> speed_control<span class="token punctuation">.</span>set_speed<span class="token punctuation">;</span>
+			EC4<span class="token operator">:</span> port interface_unit<span class="token punctuation">.</span>disengage <span class="token operator">-&gt;</span> speed_control<span class="token punctuation">.</span>disengage<span class="token punctuation">;</span>
+	end Complete<span class="token punctuation">.</span>PBA_speed_control<span class="token punctuation">;</span>
+</code></pre></div><p>        在系统实现中，说明了四种分组件。三种分组件代表速度传感器、油门杆和驾驶员接口单元，进程分组件speed_control代表为PBA提供速度控制的软件。同时，为各分组件的每个端口定义了连接。</p> <h3 id="_8-3-控制软件的细节描述"><a href="#_8-3-控制软件的细节描述" class="header-anchor">#</a> 8.3 控制软件的细节描述</h3> <p>        对进程speed_control进行详细构建，将速度控制功能交由两个分构件实现，第一个分构件是接收速度传感器的输入、确定数据的比例和对数据滤波，并向第二个线程发送处理数据的线程。第二个分构件是执行PBA速度控制规则，并将命令送给油门杆的线程。</p> <p>由于两个线程的接口是不同的，故而为每种线程定义了类型和实现。每个线程均为周期为50ms的周期性线程。</p> <div class="language-c extra-class"><pre class="language-c"><code>	<span class="token operator">--</span> PBA控制线程的说明
+	<span class="token operator">--</span> 线程一：接收速度传感器的输入，向第二个线程发送处理后的数据
+	thread read_data
+		features 
+			sensor_data<span class="token operator">:</span> in data port<span class="token punctuation">;</span>
+			proc_data<span class="token operator">:</span> out data port<span class="token punctuation">;</span>
+		properties
+			Dispatch_Protocol <span class="token operator">=</span><span class="token operator">&gt;</span> Periodic<span class="token punctuation">;</span>
+			Period <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">50</span> ms<span class="token punctuation">;</span>
+	end read_data<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 
+	thread implementation read_data<span class="token punctuation">.</span>speed
+	end read_data<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 线程二：执行PBA速度控制规则，并将命令送给油门操纵杆的线程	
+	thread control_laws
+		features
+			proc_data<span class="token operator">:</span> in data port<span class="token punctuation">;</span>
+			cmd<span class="token operator">:</span> out data port<span class="token punctuation">;</span>
+			disengage<span class="token operator">:</span> in event port<span class="token punctuation">;</span>
+			set_speed<span class="token operator">:</span> in data port<span class="token punctuation">;</span>
+		properties
+			Dispatch_Protocol <span class="token operator">=</span><span class="token operator">&gt;</span> Periodic<span class="token punctuation">;</span>
+			Period <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">50</span> ms<span class="token punctuation">;</span>
+	end control_laws<span class="token punctuation">;</span>
+		<span class="token operator">--</span>
+	thread implementation control_laws<span class="token punctuation">.</span>speed
+	end control_laws<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+</code></pre></div><p>向进程实现control.speed添加这两个线程，以及描述它们的交互(connection)。</p> <div class="language-c extra-class"><pre class="language-c"><code>	<span class="token operator">--</span> PBA控制功能
+	process implementation control<span class="token punctuation">.</span>speed
+		subcomponents
+			scale_speed_data<span class="token operator">:</span> thread read_data<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+			speed_control_laws<span class="token operator">:</span> thread control_laws<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+		connections
+			DC1<span class="token operator">:</span> port sensor_data <span class="token operator">-&gt;</span> scale_speed_data<span class="token punctuation">.</span>sensor_data<span class="token punctuation">;</span>
+			DC2<span class="token operator">:</span> port scale_speed_data<span class="token punctuation">.</span>proc_data <span class="token operator">-&gt;</span> speed_control_laws<span class="token punctuation">.</span>proc_data<span class="token punctuation">;</span>
+			DC3<span class="token operator">:</span> port speed_control_laws<span class="token punctuation">.</span>cmd <span class="token operator">-&gt;</span> command_data<span class="token punctuation">;</span>
+			DC4<span class="token operator">:</span> port set_speed <span class="token operator">-&gt;</span> speed_control_laws<span class="token punctuation">.</span>set_speed<span class="token punctuation">;</span>
+			EC1<span class="token operator">:</span> port disengage <span class="token operator">-&gt;</span> speed_control_laws<span class="token punctuation">.</span>disengage<span class="token punctuation">;</span>
+	end control<span class="token punctuation">.</span>speed<span class="token punctuation">;</span>
+</code></pre></div><h3 id="_8-4-添加硬件构件"><a href="#_8-4-添加硬件构件" class="header-anchor">#</a> 8.4 添加硬件构件</h3> <p>        此刻，我们已经定义了速度控制系统的软件构件，现在该定义支持软件所要求的执行硬件：处理器、存储器和总线。处理器将执行PBA控制代码 (线程)，而存储器将存储系统的可执行代码 (进程)，总线则为系统提供物理路径。</p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token operator">--</span> 执行平台说明
+	<span class="token operator">--</span> 声明处理器类型，用于执行PBA的控制代码<span class="token punctuation">(</span>线程<span class="token punctuation">)</span>
+	processor Real_Time
+		features
+			BA1<span class="token operator">:</span> requires bus access Marine<span class="token punctuation">.</span>Standard<span class="token punctuation">;</span>
+	end Real_Time<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 
+	processor implementation Real_Time<span class="token punctuation">.</span>one_GHz
+	end Real_Time<span class="token punctuation">.</span>one_GHz<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 声明存储器类型，用于存储系统的可执行代码<span class="token punctuation">(</span>进程<span class="token punctuation">)</span>
+	memory RAM
+		features
+			BA1<span class="token operator">:</span> requires bus access Marine<span class="token punctuation">.</span>Standard<span class="token punctuation">;</span>
+	end RAM<span class="token punctuation">;</span>
+	<span class="token operator">--</span>
+	memory implementation RAM<span class="token punctuation">.</span>Standard
+	end RAM<span class="token punctuation">.</span>Standard<span class="token punctuation">;</span>
+	<span class="token operator">--</span> 总线
+	bus Marine
+	end Marine<span class="token punctuation">;</span>
+	<span class="token operator">--</span>
+	bus implementation Marine<span class="token punctuation">.</span>Standard	
+	end Marine<span class="token punctuation">.</span>Standard<span class="token punctuation">;</span>
+</code></pre></div><p>在代码中，处理器Real_Time和存储器RAM均声明了对总线实现Marine.Standard的访问。</p> <h3 id="_8-5-物理连接的说明"><a href="#_8-5-物理连接的说明" class="header-anchor">#</a> 8.5 物理连接的说明</h3> <p>在上一节中，我们定义了执行硬件，在这一节中，我们要将这些硬件集成到我们的系统中，同时将所有硬件构件与总线连接起来。</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token key attr-name">	system</span> <span class="token value attr-value">implementation Complete.PBA_speed_control</span>
+		subcomponents
+<span class="token key attr-name">			speed_sensor</span><span class="token punctuation">:</span> <span class="token value attr-value">device sensor.speed;</span>
+<span class="token key attr-name">			throttle</span><span class="token punctuation">:</span> <span class="token value attr-value">device actuator.speed;</span>
+<span class="token key attr-name">			speed_control</span><span class="token punctuation">:</span> <span class="token value attr-value">process control.speed;</span>
+<span class="token key attr-name">			interface_unit</span><span class="token punctuation">:</span> <span class="token value attr-value">device interface.pilot;</span>
+<span class="token key attr-name">			RT_1GHz</span><span class="token punctuation">:</span> <span class="token value attr-value">processor Real_Time.one_GHz;</span>
+<span class="token key attr-name">			Standard_Marine_Bus</span><span class="token punctuation">:</span> <span class="token value attr-value">bus Marine.Standard;</span>
+<span class="token key attr-name">			Stand_Memory</span><span class="token punctuation">:</span> <span class="token value attr-value">memory RAM.Standard;</span>
+		connections
+<span class="token key attr-name">			DC1</span><span class="token punctuation">:</span> <span class="token value attr-value">port speed_sensor.sensor_data -&gt; speed_control.sensor_data;</span>
+<span class="token key attr-name">			DC2</span><span class="token punctuation">:</span> <span class="token value attr-value">port speed_control.command_data -&gt; throttle.cmd;</span>
+<span class="token key attr-name">			DC3</span><span class="token punctuation">:</span> <span class="token value attr-value">port interface_unit.set_speed -&gt; speed_control.set_speed;</span>
+<span class="token key attr-name">			EC4</span><span class="token punctuation">:</span> <span class="token value attr-value">port interface_unit.disengage -&gt; speed_control.disengage;</span>
+<span class="token key attr-name">			BAC1</span><span class="token punctuation">:</span> <span class="token value attr-value">bus access Standard_Marine_Bus &lt;-&gt; speed_sensor.BA1;</span>
+<span class="token key attr-name">			BAC2</span><span class="token punctuation">:</span> <span class="token value attr-value">bus access Standard_Marine_Bus &lt;-&gt; RT_1GHz.BA1;</span>
+<span class="token key attr-name">			BAC3</span><span class="token punctuation">:</span> <span class="token value attr-value">bus access Standard_Marine_Bus &lt;-&gt; throttle.BA1;</span>
+<span class="token key attr-name">			BAC4</span><span class="token punctuation">:</span> <span class="token value attr-value">bus access Standard_Marine_Bus &lt;-&gt; interface_unit.BA1;</span>
+<span class="token key attr-name">			BAC5</span><span class="token punctuation">:</span> <span class="token value attr-value">bus access Standard_Marine_Bus &lt;-&gt; Stand_Memory.BA1;</span>
+<span class="token key attr-name">	end</span> <span class="token value attr-value">Complete.PBA_speed_control;</span>
+</code></pre></div><h3 id="_8-6-软件对硬件的绑定"><a href="#_8-6-软件对硬件的绑定" class="header-anchor">#</a> 8.6 软件对硬件的绑定</h3> <p>        在系统构件的实现中使用属性关联，将软件构件绑定到相应的物理构件上。前两个说明表示将线程speed_control_laws和线程scale_speed_data绑定到处理器RT_1GHz。最后一个说明表示将进程speed_control中代码和数据绑定到存储器构件Standard_Memory。</p> <div class="language-properties extra-class"><pre class="language-properties"><code>		properties
+<span class="token key attr-name">			Allowed_Processor_Binding</span> <span class="token punctuation">=</span><span class="token value attr-value">&gt; (reference(RT_1GHz)) applies to speed_control.speed_control_laws;</span>
+<span class="token key attr-name">			Allowed_Processor_Binding</span> <span class="token punctuation">=</span><span class="token value attr-value">&gt; (reference(RT_1GHz)) applies to speed_control.scale_speed_data;</span>
+<span class="token key attr-name">			Actual_Memory_Binding</span> <span class="token punctuation">=</span><span class="token value attr-value">&gt; (reference(Stand_Memory)) applies to speed_control;</span>
+</code></pre></div><h3 id="_8-7-绑定和调度分析"><a href="#_8-7-绑定和调度分析" class="header-anchor">#</a> 8.7 绑定和调度分析</h3> <p>        只要定义了线程，并且建立了它对处理器的绑定，就可以开始评估处理器的负载，并分析系统的可调度性。在进行调度分析之前，需要定义线程的必要执行特性。给线程read_data分配执行时间范围1~2ms，给线程control_laws分配执行时间范围3~5ms。这些执行时间估值可以来自类似系统的原型代码或历史数据的时序测量结果为基础。</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token key attr-name">	--</span> <span class="token value attr-value">线程一：接收速度传感器的输入，向第二个线程发送处理后的数据</span>
+<span class="token key attr-name">	thread</span> <span class="token value attr-value">read_data</span>
+<span class="token key attr-name">		features</span> 
+<span class="token key attr-name">			sensor_data</span><span class="token punctuation">:</span> <span class="token value attr-value">in data port;</span>
+<span class="token key attr-name">			proc_data</span><span class="token punctuation">:</span> <span class="token value attr-value">out data port;</span>
+		properties
+<span class="token key attr-name">			Dispatch_Protocol</span> <span class="token punctuation">=</span><span class="token value attr-value">&gt; Periodic;</span>
+<span class="token key attr-name">			Compute_Execution_Time</span> <span class="token punctuation">=</span><span class="token value attr-value">&gt; 1 ms .. 2 ms;</span>
+<span class="token key attr-name">			Period</span> <span class="token punctuation">=</span><span class="token value attr-value">&gt; 50 ms;</span>
+<span class="token key attr-name">	end</span> <span class="token value attr-value">read_data;</span>
+<span class="token key attr-name">	--</span> <span class="token value attr-value">线程二：执行PBA速度控制规则，并将命令送给油门操纵杆的线程	</span>
+<span class="token key attr-name">		thread</span> <span class="token value attr-value">control_laws</span>
+			features
+<span class="token key attr-name">				proc_data</span><span class="token punctuation">:</span> <span class="token value attr-value">in data port;</span>
+<span class="token key attr-name">				cmd</span><span class="token punctuation">:</span> <span class="token value attr-value">out data port;</span>
+<span class="token key attr-name">				disengage</span><span class="token punctuation">:</span> <span class="token value attr-value">in event port;</span>
+<span class="token key attr-name">				set_speed</span><span class="token punctuation">:</span> <span class="token value attr-value">in data port;</span>
+			properties
+<span class="token key attr-name">				Dispatch_Protocol</span> <span class="token punctuation">=</span><span class="token value attr-value">&gt; Periodic;</span>
+<span class="token key attr-name">				Compute_Execution_Time</span> <span class="token punctuation">=</span><span class="token value attr-value">&gt; 3 ms .. 5 ms;</span>
+<span class="token key attr-name">				Period</span> <span class="token punctuation">=</span><span class="token value attr-value">&gt; 50 ms;</span>
+<span class="token key attr-name">		end</span> <span class="token value attr-value">control_laws;</span>
+</code></pre></div><p>此刻，我们已经定义了一个用以描述实用配置的、包括所有构件、属性和绑定的简单速度控制系统的说明性模型。根据该说明性模型的顶层系统实现，建立系统的实例模型，利用osate调度分析插件分析该模型。分析结果如下：</p> <p>系统中两个线程只使用了14%的处理器能力。两个线程的最长执行时间是7ms，它是其50ms执行周期的14%：</p> <img src="/vuepress-notes/tool/aadl/25.png" alt="declaration"> <p>由插接提供的有关线程实际绑定信息：</p> <img src="/vuepress-notes/tool/aadl/26.png" alt="declaration"> <h2 id="_9-osate模型分析功能"><a href="#_9-osate模型分析功能" class="header-anchor">#</a> 9. OSATE模型分析功能</h2> <h3 id="_9-1-流延迟分析"><a href="#_9-1-流延迟分析" class="header-anchor">#</a> 9.1 流延迟分析</h3> <p>查看端对端延迟要求是否得到满足。该工具跟踪该通路以及流的各独立要素得到的总延迟与为一个端到端的预计的延迟进行比较，生成分析报告。AADL的重要能力之一就是能够建模和分析整个系统的流路径，osate工具很好的支持了这一能力。</p> <h3 id="_9-2-总线负载分析"><a href="#_9-2-总线负载分析" class="header-anchor">#</a> 9.2 总线负载分析</h3> <p>查看系统中绑定到总线的连接和虚拟总线，并检查总线是否具有承载必要数据的能力。</p> <h3 id="_9-3-调度分析"><a href="#_9-3-调度分析" class="header-anchor">#</a> 9.3 调度分析</h3> <ol><li>绑定和调度线程：一种装箱资源分配工具，确保满足可调度性和绑定。</li> <li>调度绑定的线程：绑定到处理器的周期性线程的速率单调分析。</li> <li>检查速率单调优先级分配：对于具有分配优先级的周期性线程，确保分配的优先级符合RMA规则。</li></ol> <h3 id="_9-4-检查绑定的约束"><a href="#_9-4-检查绑定的约束" class="header-anchor">#</a> 9.4 检查绑定的约束</h3> <p>检查模型是否符合绑定属性中指定的各种约束</p> <h3 id="_9-5-模型维护"><a href="#_9-5-模型维护" class="header-anchor">#</a> 9.5 模型维护</h3> <ol><li>查找未使用的分类符：查找未使用的构件</li> <li>模型统计：返回有关系统的基本统计信息，如构件的数量、端到端的流、连接等</li></ol> <h3 id="_9-6-其他分析"><a href="#_9-6-其他分析" class="header-anchor">#</a> 9.6 其他分析</h3> <p>osate还提供了一组插件用于验证模型或将其与其他工具连接。用户可以开发自己的插件，将AADL模型与其他工具连接起来。</p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2022/12/2 18:19:13</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/vuepress-notes/tool/nusmv/" class="prev">
+          NuSMV
+        </a></span> <span class="next"><a href="/vuepress-notes/daily/english/">
+          英语学习
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-2" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_1-aadl的诞生" class="sidebar-link reco-side-_1-aadl的诞生" data-v-b57cc07c>1. AADL的诞生</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_2-aadl简介" class="sidebar-link reco-side-_2-aadl简介" data-v-b57cc07c>2. AADL简介</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_2-1-构件描述" class="sidebar-link reco-side-_2-1-构件描述" data-v-b57cc07c>2.1 构件描述</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_2-2-构件的种类" class="sidebar-link reco-side-_2-2-构件的种类" data-v-b57cc07c>2.2 构件的种类</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_2-3-特征" class="sidebar-link reco-side-_2-3-特征" data-v-b57cc07c>2.3 特征</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_2-4-属性" class="sidebar-link reco-side-_2-4-属性" data-v-b57cc07c>2.4 属性</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_2-5-附件" class="sidebar-link reco-side-_2-5-附件" data-v-b57cc07c>2.5 附件</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_3-osate简介" class="sidebar-link reco-side-_3-osate简介" data-v-b57cc07c>3. OSATE简介</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_3-1-打开软件自带样例" class="sidebar-link reco-side-_3-1-打开软件自带样例" data-v-b57cc07c>3.1 打开软件自带样例</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_3-2-打开本地项目" class="sidebar-link reco-side-_3-2-打开本地项目" data-v-b57cc07c>3.2 打开本地项目</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_3-3-实例化aadl文件" class="sidebar-link reco-side-_3-3-实例化aadl文件" data-v-b57cc07c>3.3 实例化AADL文件</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_3-4-检查流延迟" class="sidebar-link reco-side-_3-4-检查流延迟" data-v-b57cc07c>3.4 检查流延迟</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_3-5-根据aadl文件自动生成可视化的diagram图" class="sidebar-link reco-side-_3-5-根据aadl文件自动生成可视化的diagram图" data-v-b57cc07c>3.5 根据AADL文件自动生成可视化的Diagram图</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_3-6-官方帮助文档" class="sidebar-link reco-side-_3-6-官方帮助文档" data-v-b57cc07c>3.6 官方帮助文档</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-aadl属性-基于osate" class="sidebar-link reco-side-_4-aadl属性-基于osate" data-v-b57cc07c>4. AADL属性(基于osate)</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-1-属性的查看方法" class="sidebar-link reco-side-_4-1-属性的查看方法" data-v-b57cc07c>4.1 属性的查看方法</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-2-属性值类型" class="sidebar-link reco-side-_4-2-属性值类型" data-v-b57cc07c>4.2 属性值类型</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-3-属性状态" class="sidebar-link reco-side-_4-3-属性状态" data-v-b57cc07c>4.3 属性状态</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-4-local属性" class="sidebar-link reco-side-_4-4-local属性" data-v-b57cc07c>4.4 Local属性</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-5-shared-local-contained属性" class="sidebar-link reco-side-_4-5-shared-local-contained属性" data-v-b57cc07c>4.5 （shared）local contained属性</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-6-inherited属性" class="sidebar-link reco-side-_4-6-inherited属性" data-v-b57cc07c>4.6 Inherited属性</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-7-default属性" class="sidebar-link reco-side-_4-7-default属性" data-v-b57cc07c>4.7 default属性</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-8-undefined属性" class="sidebar-link reco-side-_4-8-undefined属性" data-v-b57cc07c>4.8 undefined属性</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_4-9-open-property-association操作" class="sidebar-link reco-side-_4-9-open-property-association操作" data-v-b57cc07c>4.9 Open Property Association操作</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_5-aadl构件详细介绍" class="sidebar-link reco-side-_5-aadl构件详细介绍" data-v-b57cc07c>5. AADL构件详细介绍</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_5-1-bindings" class="sidebar-link reco-side-_5-1-bindings" data-v-b57cc07c>5.1 Bindings</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_5-2-构件命名规则" class="sidebar-link reco-side-_5-2-构件命名规则" data-v-b57cc07c>5.2 构件命名规则</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_5-3-构件类型的声明" class="sidebar-link reco-side-_5-3-构件类型的声明" data-v-b57cc07c>5.3 构件类型的声明</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_5-4-packages" class="sidebar-link reco-side-_5-4-packages" data-v-b57cc07c>5.4 packages</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_5-5-软件构件" class="sidebar-link reco-side-_5-5-软件构件" data-v-b57cc07c>5.5 软件构件</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_5-6-硬件构件" class="sidebar-link reco-side-_5-6-硬件构件" data-v-b57cc07c>5.6 硬件构件</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_5-7-复合构件" class="sidebar-link reco-side-_5-7-复合构件" data-v-b57cc07c>5.7 复合构件</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_5-8-抽象构件" class="sidebar-link reco-side-_5-8-抽象构件" data-v-b57cc07c>5.8 抽象构件</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_6-构件交互" class="sidebar-link reco-side-_6-构件交互" data-v-b57cc07c>6. 构件交互</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_6-1-端口和连接" class="sidebar-link reco-side-_6-1-端口和连接" data-v-b57cc07c>6.1 端口和连接</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_6-2-总线访问和连接" class="sidebar-link reco-side-_6-2-总线访问和连接" data-v-b57cc07c>6.2 总线访问和连接</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_7-系统流" class="sidebar-link reco-side-_7-系统流" data-v-b57cc07c>7. 系统流</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_7-1-流规范的说明" class="sidebar-link reco-side-_7-1-流规范的说明" data-v-b57cc07c>7.1 流规范的说明</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_7-2-端对端流说明" class="sidebar-link reco-side-_7-2-端对端流说明" data-v-b57cc07c>7.2 端对端流说明</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_8-模型开发" class="sidebar-link reco-side-_8-模型开发" data-v-b57cc07c>8. 模型开发</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_8-1-模型构件的定义" class="sidebar-link reco-side-_8-1-模型构件的定义" data-v-b57cc07c>8.1 模型构件的定义</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_8-2-顶层模型的开发" class="sidebar-link reco-side-_8-2-顶层模型的开发" data-v-b57cc07c>8.2 顶层模型的开发</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_8-3-控制软件的细节描述" class="sidebar-link reco-side-_8-3-控制软件的细节描述" data-v-b57cc07c>8.3 控制软件的细节描述</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_8-4-添加硬件构件" class="sidebar-link reco-side-_8-4-添加硬件构件" data-v-b57cc07c>8.4 添加硬件构件</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_8-5-物理连接的说明" class="sidebar-link reco-side-_8-5-物理连接的说明" data-v-b57cc07c>8.5 物理连接的说明</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_8-6-软件对硬件的绑定" class="sidebar-link reco-side-_8-6-软件对硬件的绑定" data-v-b57cc07c>8.6 软件对硬件的绑定</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_8-7-绑定和调度分析" class="sidebar-link reco-side-_8-7-绑定和调度分析" data-v-b57cc07c>8.7 绑定和调度分析</a></li><li class="level-2" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_9-osate模型分析功能" class="sidebar-link reco-side-_9-osate模型分析功能" data-v-b57cc07c>9. OSATE模型分析功能</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_9-1-流延迟分析" class="sidebar-link reco-side-_9-1-流延迟分析" data-v-b57cc07c>9.1 流延迟分析</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_9-2-总线负载分析" class="sidebar-link reco-side-_9-2-总线负载分析" data-v-b57cc07c>9.2 总线负载分析</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_9-3-调度分析" class="sidebar-link reco-side-_9-3-调度分析" data-v-b57cc07c>9.3 调度分析</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_9-4-检查绑定的约束" class="sidebar-link reco-side-_9-4-检查绑定的约束" data-v-b57cc07c>9.4 检查绑定的约束</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_9-5-模型维护" class="sidebar-link reco-side-_9-5-模型维护" data-v-b57cc07c>9.5 模型维护</a></li><li class="level-3" data-v-b57cc07c><a href="/vuepress-notes/tool/aadl/#_9-6-其他分析" class="sidebar-link reco-side-_9-6-其他分析" data-v-b57cc07c>9.6 其他分析</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="/vuepress-notes/bgm/1.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="/vuepress-notes/bgm/1.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(/vuepress-notes/bgm/1.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>世面</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>周林</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div><canvas id="vuepress-canvas-cursor"></canvas></div></div>
+    <script src="/vuepress-notes/assets/js/app.368a2ef6.js" defer></script><script src="/vuepress-notes/assets/js/3.4410d185.js" defer></script><script src="/vuepress-notes/assets/js/1.04063a12.js" defer></script><script src="/vuepress-notes/assets/js/16.f4d660bc.js" defer></script>
+  </body>
+</html>
